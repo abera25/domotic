@@ -38,11 +38,15 @@ And this script use rpi-rf : `./../rpi-rf/scripts/rpi-rf_send -p 172 -t 1 my_cod
 
 ### Show port used
 
+```shell
 sudo netstat -lptu
+```
 
 ### Kill processus
 
+```shell
 sudo kill 9 my_pid_processus
+```
 
 ## Start at boot
 
