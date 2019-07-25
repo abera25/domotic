@@ -1,6 +1,6 @@
 # Domotic
 
-Control 433MHz outlets with a raspberry pi and a custom interface.
+Control 433MHz outlets with a raspberry pi and a custom interface on port 2500.
 
 ![View of interface](view.png)
 
@@ -12,8 +12,8 @@ Futhermore, you need to have rpi-rf install on your raspberry pi !
 
 ```shell
 cd ..
-apt-get install python3-pip
-pip3 install rpi-rf
+sudo apt-get install python3-pip
+sudo pip3 install rpi-rf
 git clone https://github.com/milaq/rpi-rf.git
 cd ../domotic
 ```
