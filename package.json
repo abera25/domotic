@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "Control your home.",
   "scripts": {
+    "dev": "node --watch server.js",
     "start": "node server.js &"
   },
   "author": "A",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "shelljs.exec": "^1.1.8"
+  },
+  "volta": {
+    "node": "20.9.0",
+    "npm": "10.1.0"
   }
 }
