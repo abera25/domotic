@@ -1,6 +1,7 @@
 {
   "name": "domotic",
   "version": "1.0.0",
+  "type": "module",
   "description": "Control your home.",
   "scripts": {
     "dev": "node --watch server.js",
@@ -9,11 +10,12 @@
   "author": "A",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.18.2",
+    "croner": "^8.0.1",
+    "express": "^4.18.3",
     "shelljs.exec": "^1.1.8"
   },
   "volta": {
-    "node": "20.9.0",
-    "npm": "10.1.0"
+    "node": "20.11.1",
+    "npm": "10.2.4"
   }
 }

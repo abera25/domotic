@@ -1,23 +1,23 @@
-const exec = require('shelljs.exec');
-const express = require('express');
+// @ts-check
+import express from 'express'
+import { Cron } from 'croner'
+import { switchFn } from './src/switch.js'
+
 const app = express();
 const port = 2500;
 
-app.get('/', (req, res) => {
-  res.sendFile('index.html', { root: __dirname });
+app.get('/', (_, res) => {
+	res.sendFile('index.html', { root: '.' })
 });
 
 app.get('/:outlet/:action', ({ params: { outlet, action } }, res) => {
-  if (
-    ['1', '2', '3', '4', '5'].includes(outlet)
-    &&
-    ['ON', 'OFF'].includes(action)
-  ) {
-    exec(`./run.sh ${outlet} ${action}`, { silent: true });
-    res.sendStatus(200);
-  } else {
-    res.sendStatus(400);
-  }
+	const status = switchFn({ outlet, action }) ? 200 : 400
+	res.sendStatus(status)
+});
+
+// Force switch off at 4:30 am
+Cron('30 4 * * *', () => {
+	['1', '2', '3', '4', '5'].forEach(outlet => switchFn({ outlet, action: 'OFF' }))
 });
 
 app.listen(port);
